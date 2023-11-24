@@ -61,6 +61,7 @@ packages=(
 	sshfs
         sshpass
 	systemd-devel
+	tar
 	targetcli
 	valgrind
 	wget
