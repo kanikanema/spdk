@@ -3,8 +3,6 @@
 #  SPDX-License-Identifier: BSD-3-Clause
 #  All rights reserved.
 
-is_repo() { tdnf repolist --all | grep -q "^$1"; }
-
 additional_dependencies() {
 	# Additional dependencies for SPDK CLI
 	tdnf install -y python3-pexpect
@@ -79,7 +77,11 @@ fi
 
 # If running as root, print a warning
 if [[ $EUID -eq 0 ]]; then
-	echo "Warning: Running as root. You may want to install the pip packages as a normal user or in a venv."
+	echo "Warning: 
+		Running as root. You may want to install the pip packages as a non-root user, 
+		if you wish to build SPDK as a non-root user.
+
+		"
 fi
 pip3 install meson
 pip3 install ninja
